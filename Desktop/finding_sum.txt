@@ -1,0 +1,58 @@
+/*finding sum(codevita problem)
+->problem description
+	you are given a set of n positive integers and another integer p,where p is a small prime.you need to write a program to count the number of subsets of size (cardinality)3.the sum of whose element is divisible by p,since the number k
+	such sets can be huge.output k modualo 10007 1009(the reminder when k is divided by 1009)
+->constraints
+	n<=500
+	p<50
+	all integers<=1000
+*/
+#include<stdio.h>
+#include <conio.h>
+void main()
+{
+	int c,n,p,count=0,sum=0,i,j,a[50],m,flag=0,k;
+	clrscr();
+	printf("enter n");
+	scanf("%d",&n);
+	printf("enter prime number p");
+	scanf("%d",&p);
+	m=p/2;
+	for(k=2;k<m;k++)
+	{
+		if(p%k==0)
+		{
+			printf("not prime number");
+			flag=1;
+			break;
+		}
+	}
+	if(flag==0)
+	{
+	printf("enter elment");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			c=a[j];
+			sum=a[i]+a[j];
+			if(a[j]!=c)
+			{
+				sum=sum+a[j];
+
+			}
+			if(sum%p==0)
+			{
+				count++;
+			}
+		}
+	}
+	printf("count=%d",count);
+	}
+	getch();
+}
+
